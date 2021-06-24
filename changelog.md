@@ -1,3 +1,3 @@
 # Changelog
 
-Initial commit
+Binary files ignored
