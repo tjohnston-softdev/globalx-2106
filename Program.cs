@@ -7,10 +7,22 @@ namespace globalX
     {
         static void Main(string[] scriptArgs)
         {
-			string inputFilePath = InputArgs.readInputPath(scriptArgs);
-			string outputFilePath = InputArgs.readOutputPath(scriptArgs);
-			bool fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
-			Console.WriteLine(fileSizeValid);
+			string inputFilePath = "";
+			string outputFilePath = "";
+			bool fileSizeValid = false;
+			
+			try
+			{
+				inputFilePath = InputArgs.readInputPath(scriptArgs);
+				outputFilePath = InputArgs.readOutputPath(scriptArgs);
+				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
+				
+				Console.WriteLine("Successful");
+			}
+			catch(Exception flaggedError)
+			{
+				Console.WriteLine(flaggedError.Message);
+			}
         }
     }
 }

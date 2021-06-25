@@ -8,13 +8,13 @@ namespace globalX.Tasks
 		{
 			string pathRes = "";
 			
-			if (argArray.Length > 0)
+			try
 			{
 				pathRes = argArray[0].ToLower();
 			}
-			else
+			catch
 			{
-				throw new Exception("ERROR: Input file path is required.");
+				throw new Exception("Input file path is required.");
 			}
 			
 			return pathRes;
