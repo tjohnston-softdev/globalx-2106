@@ -13,8 +13,8 @@ namespace globalX
 			
 			try
 			{
-				inputFilePath = InputArgs.readInputPath(scriptArgs);
-				outputFilePath = InputArgs.readOutputPath(scriptArgs);
+				inputFilePath = InputArgs.ReadInputPath(scriptArgs);
+				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
 				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
 				
 				Console.WriteLine("Successful");

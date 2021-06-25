@@ -4,7 +4,7 @@ namespace globalX.Tasks
 {
 	public class InputArgs
 	{
-		public static string readInputPath(string[] argArray)
+		public static string ReadInputPath(string[] argArray)
 		{
 			string pathRes = "";
 			
@@ -21,7 +21,7 @@ namespace globalX.Tasks
 		}
 		
 		
-		public static string readOutputPath(string[] argArray)
+		public static string ReadOutputPath(string[] argArray)
 		{
 			string pathRes = "./sorted-names-list.txt";
 			
