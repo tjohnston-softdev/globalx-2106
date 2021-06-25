@@ -38,5 +38,21 @@ namespace globalX.Common
 			Person objectRes = new Person(idArg, lastStr, givenStr);
 			return objectRes;
 		}
+		
+		
+		public int entryID
+		{
+			get {return pEntryID;}
+		}
+		
+		public string lastName
+		{
+			get {return pLastName;}
+		}
+		
+		public string givenNames
+		{
+			get {return pGivenNames;}
+		}
 	}
 }

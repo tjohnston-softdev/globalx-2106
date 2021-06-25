@@ -25,7 +25,8 @@ namespace globalX
 				{
 					inputLines = ReadInputFile.GetLines(inputFilePath);
 					peopleEntries = ParseNames.IterateLines(inputLines);
-					Console.WriteLine(peopleEntries.Count);
+					SortNames.PerformSort(peopleEntries);
+					SortNames.DisplaySortResults(peopleEntries);
 				}
 				
 			}
