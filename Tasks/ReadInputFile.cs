@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Security;
 using System.Text;
+using globalX.Common;
 
 namespace globalX.Tasks
 {
@@ -9,41 +10,19 @@ namespace globalX.Tasks
 	{
 		private static int maxSize = 1000000;
 		
-		public static bool ValidateSize(string inpPath)
+		public static bool ValidateSize(string inpFilePath)
 		{
-			FileInfo inpInfo = null;
+			long retrievedSize = -1;
 			bool validRes = false;
 			
 			try
 			{
-				inpInfo = new FileInfo(inpPath);
-				validRes = CheckBytes(inpInfo.Length);
+				retrievedSize = GetBytes(inpFilePath);
+				validRes = CheckBytes(retrievedSize);
 			}
-			/*
-			catch(ArgumentException argErr)
+			catch(Exception validErr)
 			{
-				throw new Exception("Input file path is invalid or empty.");
-			}
-			catch(SecurityException secErr)
-			{
-				throw new Exception("PLACEHOLDER");
-			}
-			catch(UnauthorizedAccessException accessErr)
-			{
-				throw new Exception("PLACEHOLDER");
-			}
-			catch(PathTooLongException lengthErr)
-			{
-				throw new Exception("PLACEHOLDER");
-			}
-			catch(NotSupportedException supportErr)
-			{
-				throw new Exception("PLACEHOLDER");
-			}
-			*/
-			catch(Exception otherErr)
-			{
-				throw new Exception(otherErr.Message);
+				throw new Exception(validErr.Message);
 			}
 			
 			
@@ -51,32 +30,45 @@ namespace globalX.Tasks
 		}
 		
 		
-		public static string[] GetLines(string inpPath)
+		public static string[] GetLines(string inpFilePath)
 		{
 			string[] linesRes = null;
+			string fileErrMsg = "";
 			
 			try
 			{
-				linesRes = File.ReadAllLines(inpPath, Encoding.UTF8);
+				linesRes = File.ReadAllLines(inpFilePath, Encoding.UTF8);
 			}
-			catch
+			catch(Exception linesErr)
 			{
-				throw new Exception("PLACEHOLDER");
+				fileErrMsg = ErrorMessages.WriteFileMessage("read", "input", linesErr);
+				throw new Exception(fileErrMsg);
 			}
 			
 			return linesRes;
 		}
 		
 		
-		public static void DemoLines(string[] linesArr)
+		private static long GetBytes(string inpPath)
 		{
-			int lineCount = linesArr.Length;
-			string first = linesArr[0];
-			string last = linesArr[lineCount - 1];
+			FileInfo systemEntry = null;
+			long getRes = -1;
+			string fileErrMsg = "";
 			
-			Console.WriteLine("First: " + first);
-			Console.WriteLine("Last: " + last);
+			try
+			{
+				systemEntry = new FileInfo(inpPath);
+				getRes = systemEntry.Length;
+			}
+			catch(Exception infoErr)
+			{
+				fileErrMsg = ErrorMessages.WriteFileMessage("check", "input", infoErr);
+				throw new Exception(fileErrMsg);
+			}
+			
+			return getRes;
 		}
+		
 		
 		private static bool CheckBytes(long givenBytes)
 		{

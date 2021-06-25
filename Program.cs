@@ -23,16 +23,16 @@ namespace globalX
 				
 				if (fileSizeValid == true)
 				{
-					inputLines = ReadInputFile.GetLines(inputFilePath);
-					peopleEntries = ParseNames.IterateLines(inputLines);
-					SortNames.PerformSort(peopleEntries);
-					SortNames.DisplaySortResults(peopleEntries);
+					inputLines = ReadInputFile.GetLines("./meow.txt");
+					//peopleEntries = ParseNames.IterateLines(inputLines);
+					//SortNames.PerformSort(peopleEntries);
+					//SortNames.DisplaySortResults(peopleEntries);
 				}
 				
 			}
 			catch(Exception flaggedError)
 			{
-				Console.WriteLine(flaggedError.Message);
+				Console.WriteLine("ERROR: " + flaggedError.Message);
 			}
         }
     }
