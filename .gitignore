@@ -333,3 +333,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# IO file paths
+unsorted-names-list.txt
+sorted-names-list.txt
