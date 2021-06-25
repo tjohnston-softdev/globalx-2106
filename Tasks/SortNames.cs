@@ -6,7 +6,6 @@ namespace globalX.Tasks
 {
 	public class SortNames
 	{
-		private static string excessWhitespace = @"(\s+)";
 		
 		public static void PerformSort(List<Person> entryList)
 		{
@@ -31,13 +30,13 @@ namespace globalX.Tasks
 		
 		private static int CompareEntries(Person x, Person y)
 		{
-			string xLastLower = x.lastName.ToLower();
-			string yLastLower = y.lastName.ToLower();
-			string xGivenLower = x.givenNames.ToLower();
-			string yGivenLower = y.givenNames.ToLower();
+			string xLast = x.lastName.ToLower();
+			string yLast = y.lastName.ToLower();
+			string xGiven = x.givenNames.ToLower();
+			string yGiven = y.givenNames.ToLower();
 			
-			int lastComp = xLastLower.CompareTo(yLastLower);
-			int givenComp = xGivenLower.CompareTo(yGivenLower);
+			int lastComp = xLast.CompareTo(yLast);
+			int givenComp = xGiven.CompareTo(yGiven);
 			int orderComp = x.entryID.CompareTo(y.entryID);
 			
 			int resultFlag = 0;
