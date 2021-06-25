@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using globalX.Common;
 using globalX.Tasks;
 
 namespace globalX
@@ -11,6 +13,7 @@ namespace globalX
 			string outputFilePath = "";
 			bool fileSizeValid = false;
 			string[] inputLines = null;
+			List<Person> peopleEntries = new List<Person>();
 			
 			try
 			{
@@ -21,7 +24,8 @@ namespace globalX
 				if (fileSizeValid == true)
 				{
 					inputLines = ReadInputFile.GetLines(inputFilePath);
-					ReadInputFile.DemoLines(inputLines);
+					peopleEntries = ParseNames.IterateLines(inputLines);
+					Console.WriteLine(peopleEntries.Count);
 				}
 				
 			}

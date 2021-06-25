@@ -1,23 +1,29 @@
 # Changelog
 
-**./Tasks/ReadInputFile.cs**
-* Imported 'System.Text'
-* Wrote new function 'GetLines'
-	* Reads input file as an array of lines.
-	* Uses a try-catch structure, but no custom error messages for now.
-* Changes to 'ValidateSize'
-	* Commented out system exceptions.
-	* With generic exceptions, a new error is thrown using the caught message.
-	* No more warnings on compile.
-* Wrote new function 'DemoLines'
-	* Displays first and last lines from input file.
-	* Used for debugging.
+**./Common/Person.cs**
+* New file - Contains Person class.
+	* ID
+	* Last name
+	* Given name(s)
+* Static constructors for different name structures
+	* First only
+	* First and Last
+	* First, Middle, and Last
+
+---
+
+**./Tasks/ParseNames.cs**
+* New file - Used to parse name lines.
+* While a person can only have up to three given names, the class can support more.
 
 ---
 
 **./Program.cs**
-* Declared new variable 'inputLines'
-	* Array of input file lines.
-* Added calls to 'ReadInputFile'
-	* GetLines
-	* DemoLines
+* Imported:
+	* System.Collections.Generic
+	* globalX.Common
+* Removed 'ReadInputFile.DemoLines' call.
+* Declared new variable 'peopleEntries'
+	* Contains parsed name entries.
+* Added call to 'ParseNames'
+* On success, the number of parsed entries is displayed.
