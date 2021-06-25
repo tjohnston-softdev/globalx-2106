@@ -35,7 +35,7 @@ namespace globalX.Common
 			
 			if (eType == "ArgumentException")
 			{
-				prepDesc = "Path is empty or invalid.";
+				prepDesc = "Path string is empty or invalid.";
 			}
 			else if (eType == "SecurityException")
 			{
@@ -51,11 +51,11 @@ namespace globalX.Common
 			}
 			else if (eType == "NotSupportedException")
 			{
-				prepDesc = "Path not supported. Please remove any colons.";
+				prepDesc = "Path string is not supported. Please remove any special characters.";
 			}
 			else if (eType == "DirectoryNotFoundException")
 			{
-				prepDesc = "Directory not found.";
+				prepDesc = "Directory does not exist.";
 			}
 			else if (eType == "IOException")
 			{
