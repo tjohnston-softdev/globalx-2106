@@ -10,6 +10,7 @@ namespace globalX
 			string inputFilePath = "";
 			string outputFilePath = "";
 			bool fileSizeValid = false;
+			string[] inputLines = null;
 			
 			try
 			{
@@ -17,7 +18,12 @@ namespace globalX
 				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
 				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
 				
-				Console.WriteLine("Successful");
+				if (fileSizeValid == true)
+				{
+					inputLines = ReadInputFile.GetLines(inputFilePath);
+					ReadInputFile.DemoLines(inputLines);
+				}
+				
 			}
 			catch(Exception flaggedError)
 			{

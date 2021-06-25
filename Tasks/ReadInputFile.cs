@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Security;
+using System.Text;
 
 namespace globalX.Tasks
 {
@@ -18,6 +19,7 @@ namespace globalX.Tasks
 				inpInfo = new FileInfo(inpPath);
 				validRes = CheckBytes(inpInfo.Length);
 			}
+			/*
 			catch(ArgumentException argErr)
 			{
 				throw new Exception("Input file path is invalid or empty.");
@@ -38,13 +40,42 @@ namespace globalX.Tasks
 			{
 				throw new Exception("PLACEHOLDER");
 			}
+			*/
 			catch(Exception otherErr)
 			{
-				throw otherErr;
+				throw new Exception(otherErr.Message);
 			}
 			
 			
 			return validRes;
+		}
+		
+		
+		public static string[] GetLines(string inpPath)
+		{
+			string[] linesRes = null;
+			
+			try
+			{
+				linesRes = File.ReadAllLines(inpPath, Encoding.UTF8);
+			}
+			catch
+			{
+				throw new Exception("PLACEHOLDER");
+			}
+			
+			return linesRes;
+		}
+		
+		
+		public static void DemoLines(string[] linesArr)
+		{
+			int lineCount = linesArr.Length;
+			string first = linesArr[0];
+			string last = linesArr[lineCount - 1];
+			
+			Console.WriteLine("First: " + first);
+			Console.WriteLine("Last: " + last);
 		}
 		
 		private static bool CheckBytes(long givenBytes)
