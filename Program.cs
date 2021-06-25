@@ -1,12 +1,17 @@
 ﻿using System;
+using globalX.Tasks;
 
 namespace globalX
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] scriptArgs)
         {
-            Console.WriteLine("Hello World!");
+			string inputFilePath = InputArgs.readInputPath(scriptArgs);
+			string outputFilePath = InputArgs.readOutputPath(scriptArgs);
+			
+			Console.WriteLine("Input Path: " + inputFilePath);
+			Console.WriteLine("Output Path: " + outputFilePath);
         }
     }
 }
