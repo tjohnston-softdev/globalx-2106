@@ -1,7 +1,13 @@
 # Changelog
 
-**.gitignore**
-* Added:
-	* unsorted-names-list.txt
-	* sorted-names-list.txt
-* This should apply to all files of those names, not just in the root.
+**./Tasks/ReadInputFile.cs**
+* New file - Functions to read input text file.
+	* Currently only validates size.
+	* Max size is 1MB
+	* Different error messages for 'Too large' and 'Empty'
+
+---
+
+**./Program.cs**
+* Calls input file size validation.
+* Console displays size validation result instead of path arguments.

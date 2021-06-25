@@ -9,9 +9,8 @@ namespace globalX
         {
 			string inputFilePath = InputArgs.readInputPath(scriptArgs);
 			string outputFilePath = InputArgs.readOutputPath(scriptArgs);
-			
-			Console.WriteLine("Input Path: " + inputFilePath);
-			Console.WriteLine("Output Path: " + outputFilePath);
+			bool fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
+			Console.WriteLine(fileSizeValid);
         }
     }
 }
