@@ -16,7 +16,6 @@ namespace NameSorter.Common
 			// Perform comparisons.
 			int lastComp = xLast.CompareTo(yLast);
 			int givenComp = xGiven.CompareTo(yGiven);
-			int orderComp = x.entryID.CompareTo(y.entryID);
 			
 			int resultFlag = 0;
 			
@@ -32,8 +31,8 @@ namespace NameSorter.Common
 			}
 			else
 			{
-				// Sort by original line order.
-				resultFlag = orderComp;
+				// Tied
+				resultFlag = 0;
 			}
 			
 			return resultFlag;
