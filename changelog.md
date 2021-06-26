@@ -1,25 +1,14 @@
 # Changelog
 
-**./NameSorter/Tasks/WriteOutputFile.cs**
-* New file - Used to write sorted names to output file.
-* Separate functions for:
-	* Writing the name lines.
-	* Saving text lines to file.
-
----
-
-**./NameSorter/Tasks/SortNames.cs**
-* Removed 'DisplaySortResults' function.
-	* Used as the basis for 'SaveResults' in 'WriteOutputFile.cs'
+**./NameSorter/Tasks/DisplaySortedLines.cs**
+* New file - Used to display output lines to console.
 
 ---
 
 **./NameSorter/Program.cs**
-* Declared variables:
-	* outputLines
-	* resultsSaved
-* Added calls to 'WriteOutputFile'
-	* PrepareLines
-	* SaveResults
-* Removed the 'SortNames.DisplaySortResults' call.
-* On successful completion, a "Save" message will be shown.
+* On successful completion, 'DisplaySortedLines.Display' is called.
+* Split to new function 'CallInputRead'
+	* 'inputLines' variable.
+	* ReadInputFile.GetLines
+	* ParseNames.IterateLines
+* 'peopleEntries' is now assigned using 'CallInputRead'

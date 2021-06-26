@@ -7,12 +7,12 @@ namespace NameSorter
 {
     class Program
     {
-        static void Main(string[] scriptArgs)
+        private static void Main(string[] scriptArgs)
         {
 			string inputFilePath = "";
 			string outputFilePath = "";
 			bool fileSizeValid = false;
-			string[] inputLines = null;
+			
 			List<Person> peopleEntries = new List<Person>();
 			string[] outputLines = null;
 			bool resultsSaved = false;
@@ -25,8 +25,7 @@ namespace NameSorter
 				
 				if (fileSizeValid == true)
 				{
-					inputLines = ReadInputFile.GetLines(inputFilePath);
-					peopleEntries = ParseNames.IterateLines(inputLines);
+					peopleEntries = CallInputRead(inputFilePath);
 					SortNames.PerformSort(peopleEntries);
 					outputLines = WriteOutputFile.PrepareLines(peopleEntries);
 					resultsSaved = WriteOutputFile.SaveResults(outputFilePath, outputLines);
@@ -34,7 +33,7 @@ namespace NameSorter
 				
 				if (resultsSaved == true)
 				{
-					Console.WriteLine("Save successful");
+					DisplaySortedLines.Display(100, outputLines);
 				}
 				
 			}
@@ -43,5 +42,12 @@ namespace NameSorter
 				Console.WriteLine("ERROR: " + flaggedError.Message);
 			}
         }
+		
+		private static List<Person> CallInputRead(string filePth)
+		{
+			string[] inputLines = ReadInputFile.GetLines(filePth);
+			List<Person> readRes = ParseNames.IterateLines(inputLines);
+			return readRes;
+		}
     }
 }
