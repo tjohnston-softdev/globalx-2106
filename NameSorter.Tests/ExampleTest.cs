@@ -8,8 +8,7 @@ namespace NameSorter.Tests
 		[Test]
         public void TestOne()
         {
-			int calcVal = 6 * 5;
-			Assert.AreEqual(calcVal, 30);
+			Assert.Pass();
         }
     }
 }

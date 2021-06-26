@@ -1,10 +1,14 @@
 # Changelog
 
-**./NameSorter/**
-* Commented script files.
+**./NameSorter.Tests/ExampleTest.cs**
+* Test now passes automatically.
 
 ---
 
-**./NameSorter/Common/Person.cs - MoreNames**
-* Variables are declared and assigned on separate lines.
-	* Except for 'objectRes'
+**./NameSorter.Tests/OrderTests.cs**
+* New file - Tests for comparing name sort order.
+	* Two (First,Last) names.
+	* Two (First) names
+	* (First,Middle,Last) vs. (First,Last)
+	* Same last name.
+	* Duplicate names (Placeholder only)
