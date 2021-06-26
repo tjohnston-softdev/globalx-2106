@@ -1,4 +1,4 @@
 # Changelog
 
-**./NameSorter.Tests/OrderTests.cs**
-* Added reference URL to name generator.
+* Wrote project readme.
+* Converted assessment instructions to markdown.
