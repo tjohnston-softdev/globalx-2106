@@ -55,7 +55,7 @@ namespace globalX.Common
 			}
 			else if (eType == "DirectoryNotFoundException")
 			{
-				prepDesc = "Directory does not exist.";
+				prepDesc = "Directory not found.";
 			}
 			else if (eType == "IOException")
 			{
@@ -63,7 +63,7 @@ namespace globalX.Common
 			}
 			else if (eType == "FileNotFoundException")
 			{
-				prepDesc = "File does not exist.";
+				prepDesc = "Does not exist.";
 			}
 			else
 			{
