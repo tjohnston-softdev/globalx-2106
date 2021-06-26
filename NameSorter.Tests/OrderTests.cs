@@ -3,9 +3,13 @@ using NameSorter.Common;
 
 namespace NameSorter.Tests
 {
-    [TestFixture]
+    // Unit tests for name sort order.
+	
+	[TestFixture]
 	public class OrderTests
     {	
+		
+		// Two sets of (First,Last)
 		[Test]
 		public void FirstLast()
 		{
@@ -19,6 +23,7 @@ namespace NameSorter.Tests
 			Assert.AreEqual(-1, flagRes);
 		}
 		
+		// (First,Last) vs. (First)
 		[Test]
 		public void FirstOnly()
 		{
@@ -32,6 +37,7 @@ namespace NameSorter.Tests
 			Assert.AreEqual(1, flagRes);
 		}
 		
+		// (First,Middle,Last) vs. (First,Last)
 		[Test]
 		public void FirstMiddleLast()
 		{
@@ -45,7 +51,7 @@ namespace NameSorter.Tests
 			Assert.AreEqual(-1, flagRes);
 		}
 		
-		
+		// Same last names.
 		[Test]
 		public void SameLastName()
 		{
@@ -59,6 +65,7 @@ namespace NameSorter.Tests
 			Assert.AreEqual(1, flagRes);
 		}
 		
+		// Duplicate names.
 		[Test]
 		public void DuplicateNames()
 		{
@@ -70,6 +77,7 @@ namespace NameSorter.Tests
 			Assert.AreEqual(0, flagRes);
 		}
 		
+		// Case sensitivity
 		[Test]
 		public void CaseSensitivity()
 		{

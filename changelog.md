@@ -1,5 +1,6 @@
 # Changelog
 
-**./NameSorter/Tasks/ReadInputFile.cs - CheckBytes**
-* Declared 'sizeErrMsg' variable.
-* Error messages are now written using 'ErrorMessages.WriteInputSizeMessage'
+**./NameSorter.Tests/**
+* Commented script files.
+	* OrderTests.cs
+	* SampleDataTest.cs

@@ -5,11 +5,14 @@ using NameSorter.Tasks;
 
 namespace NameSorter.Tests
 {
-    [TestFixture]
+    // Unit test for sample data provided in assessment description.
+	
+	[TestFixture]
 	public class SampleDataTest
     {	
 		private string[] sortedNames = null;
 		
+		// Define, parse, and sort data.
 		[SetUp]
 		public void PrepareSampleData()
 		{
@@ -33,6 +36,7 @@ namespace NameSorter.Tests
 			sortedNames = WriteOutputFile.PrepareLines(sampleEntries);
 		}
 		
+		// Test correct order.
 		[Test]
 		public void TestSortResults()
 		{
