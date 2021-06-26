@@ -23,10 +23,10 @@ namespace globalX
 				
 				if (fileSizeValid == true)
 				{
-					inputLines = ReadInputFile.GetLines("./meow.txt");
-					//peopleEntries = ParseNames.IterateLines(inputLines);
-					//SortNames.PerformSort(peopleEntries);
-					//SortNames.DisplaySortResults(peopleEntries);
+					inputLines = ReadInputFile.GetLines(inputFilePath);
+					peopleEntries = ParseNames.IterateLines(inputLines);
+					SortNames.PerformSort(peopleEntries);
+					SortNames.DisplaySortResults(peopleEntries);
 				}
 				
 			}

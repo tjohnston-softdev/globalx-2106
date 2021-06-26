@@ -1,7 +1,5 @@
 # Changelog
 
-**./NameSorter/Common/ErrorMessages.cs - PrepareErrorDescription**
-* DirectoryNotFoundException
-	* Changed "does not exist" to "not found"
-* FileNotFoundException
-	* Removed "File"
+**./NameSorter/Program.cs**
+* The call to 'ReadInputFile.GetLines' now uses the correct path argument.
+* Uncommented calls.
