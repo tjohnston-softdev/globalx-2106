@@ -1,14 +1,11 @@
 # Changelog
 
-**./NameSorter/Tasks/DisplaySortedLines.cs**
-* New file - Used to display output lines to console.
+**./NameSorter/Common/NameOrder.cs**
+* New file - Contains function to compare names for alphabetical sorting.
+* Split from '../Tasks/SortNames.cs'
+* Made public for unit testing.
 
 ---
 
-**./NameSorter/Program.cs**
-* On successful completion, 'DisplaySortedLines.Display' is called.
-* Split to new function 'CallInputRead'
-	* 'inputLines' variable.
-	* ReadInputFile.GetLines
-	* ParseNames.IterateLines
-* 'peopleEntries' is now assigned using 'CallInputRead'
+**./NameSorter/Tasks/SortNames.cs**
+* Moved 'CompareEntries' function to '../Common/NameOrder.cs'
