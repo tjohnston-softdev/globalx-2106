@@ -12,22 +12,6 @@ namespace NameSorter.Tasks
 			entryList.Sort(CompareEntries);
 		}
 		
-		
-		public static void DisplaySortResults(List<Person> entryList)
-		{
-			int index = 0;
-			Person currentPerson = null;
-			string currentLine = "";
-			
-			for (index = 0; index < entryList.Count; index = index + 1)
-			{
-				currentPerson = entryList[index];
-				currentLine = currentPerson.givenNames + " " + currentPerson.lastName;
-				Console.WriteLine(currentLine);
-			}
-		}
-		
-		
 		private static int CompareEntries(Person x, Person y)
 		{
 			string xLast = x.lastName.ToLower();

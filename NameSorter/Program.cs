@@ -14,6 +14,8 @@ namespace NameSorter
 			bool fileSizeValid = false;
 			string[] inputLines = null;
 			List<Person> peopleEntries = new List<Person>();
+			string[] outputLines = null;
+			bool resultsSaved = false;
 			
 			try
 			{
@@ -26,7 +28,13 @@ namespace NameSorter
 					inputLines = ReadInputFile.GetLines(inputFilePath);
 					peopleEntries = ParseNames.IterateLines(inputLines);
 					SortNames.PerformSort(peopleEntries);
-					SortNames.DisplaySortResults(peopleEntries);
+					outputLines = WriteOutputFile.PrepareLines(peopleEntries);
+					resultsSaved = WriteOutputFile.SaveResults(outputFilePath, outputLines);
+				}
+				
+				if (resultsSaved == true)
+				{
+					Console.WriteLine("Save successful");
 				}
 				
 			}
