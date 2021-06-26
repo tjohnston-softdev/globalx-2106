@@ -4,8 +4,10 @@ using System.Security;
 
 namespace NameSorter.Common
 {
+	// Common error messages.
 	public class ErrorMessages
 	{
+		// File IO.
 		public static string WriteFileMessage(string vAction, string vFile, Exception errObject)
 		{
 			string errType = errObject.GetType().Name;
@@ -22,6 +24,7 @@ namespace NameSorter.Common
 		}
 		
 		
+		// Input file size.
 		public static string WriteInputSizeMessage(string vContext)
 		{
 			string writeRes = "Input text file cannot be " + vContext;
@@ -29,6 +32,7 @@ namespace NameSorter.Common
 		}
 		
 		
+		// Parses IO exception into readable description.
 		private static string PrepareErrorDescription(string eType)
 		{
 			string prepDesc = "";

@@ -4,6 +4,7 @@ using NameSorter.Common;
 
 namespace NameSorter.Tasks
 {
+	// Sort names into alphabetical order.
 	public class SortNames
 	{
 		

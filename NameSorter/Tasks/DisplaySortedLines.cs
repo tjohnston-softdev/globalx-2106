@@ -5,6 +5,7 @@ using NameSorter.Common;
 
 namespace NameSorter.Tasks
 {
+	// Display sorted names to console.
 	public class DisplaySortedLines
 	{	
 		public static void Display(int maxDispCount, string[] linesArrObj)
@@ -19,7 +20,7 @@ namespace NameSorter.Tasks
 			}
 		}
 		
-		
+		// Loop name lines.
 		private static void RunLoop(int dispCount, string[] linesArr)
 		{
 			int lineIndex = 0;
@@ -31,16 +32,21 @@ namespace NameSorter.Tasks
 			
 			while (lineIndex >= 0 && lineIndex < loopCutoff)
 			{
+				// Display current line.
 				currentLine = linesArr[lineIndex];
 				Console.WriteLine(currentLine);
 				lineIndex = lineIndex + 1;
 			}
 			
+			
 			if (lineIndex < linesArr.Length)
 			{
+				// Further names truncated.
 				Console.WriteLine("");
 				Console.WriteLine("[...]");
 			}
 		}
+		
+		
 	}
 }

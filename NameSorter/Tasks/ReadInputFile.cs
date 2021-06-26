@@ -6,10 +6,14 @@ using NameSorter.Common;
 
 namespace NameSorter.Tasks
 {
+	// Open and read input file.
 	public class ReadInputFile
 	{
+		// 1 megabyte.
 		private static int maxSize = 1000000;
 		
+		
+		// Validate file size.
 		public static bool ValidateSize(string inpFilePath)
 		{
 			long retrievedSize = -1;
@@ -22,6 +26,7 @@ namespace NameSorter.Tasks
 			}
 			catch(Exception validErr)
 			{
+				// Error caught.
 				throw new Exception(validErr.Message);
 			}
 			
@@ -29,7 +34,7 @@ namespace NameSorter.Tasks
 			return validRes;
 		}
 		
-		
+		// Read file as array of lines.
 		public static string[] GetLines(string inpFilePath)
 		{
 			string[] linesRes = null;
@@ -48,7 +53,7 @@ namespace NameSorter.Tasks
 			return linesRes;
 		}
 		
-		
+		// Read size of input file in bytes.
 		private static long GetBytes(string inpPath)
 		{
 			FileInfo systemEntry = null;
@@ -57,11 +62,13 @@ namespace NameSorter.Tasks
 			
 			try
 			{
+				// Attempt open.
 				systemEntry = new FileInfo(inpPath);
 				getRes = systemEntry.Length;
 			}
 			catch(Exception infoErr)
 			{
+				// Error opening input file.
 				fileErrMsg = ErrorMessages.WriteFileMessage("check", "input", infoErr);
 				throw new Exception(fileErrMsg);
 			}
@@ -69,7 +76,7 @@ namespace NameSorter.Tasks
 			return getRes;
 		}
 		
-		
+		// Validate byte count.
 		private static bool CheckBytes(long givenBytes)
 		{
 			bool checkRes = false;
