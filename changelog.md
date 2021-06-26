@@ -1,5 +1,8 @@
 # Changelog
 
-**./NameSorter/Program.cs**
-* The call to 'ReadInputFile.GetLines' now uses the correct path argument.
-* Uncommented calls.
+**./NameSorter/**
+* Changed root namespace from 'globalX' to 'NameSorter'
+* Affected files:
+	* Program.cs
+	* Common/*.cs
+	* Tasks/*.cs

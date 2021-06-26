@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Security;
 
-namespace globalX.Common
+namespace NameSorter.Common
 {
 	public class ErrorMessages
 	{

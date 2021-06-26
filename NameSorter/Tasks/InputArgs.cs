@@ -1,6 +1,6 @@
 using System;
 
-namespace globalX.Tasks
+namespace NameSorter.Tasks
 {
 	public class InputArgs
 	{

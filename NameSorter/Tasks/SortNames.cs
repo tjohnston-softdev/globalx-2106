@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using globalX.Common;
+using NameSorter.Common;
 
-namespace globalX.Tasks
+namespace NameSorter.Tasks
 {
 	public class SortNames
 	{

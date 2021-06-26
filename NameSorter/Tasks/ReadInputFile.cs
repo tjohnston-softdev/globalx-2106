@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Security;
 using System.Text;
-using globalX.Common;
+using NameSorter.Common;
 
-namespace globalX.Tasks
+namespace NameSorter.Tasks
 {
 	public class ReadInputFile
 	{

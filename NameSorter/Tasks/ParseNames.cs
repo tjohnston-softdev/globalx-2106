@@ -1,9 +1,9 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using globalX.Common;
+using NameSorter.Common;
 
-namespace globalX.Tasks
+namespace NameSorter.Tasks
 {
 	public class ParseNames
 	{

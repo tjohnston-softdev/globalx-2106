@@ -1,6 +1,6 @@
 using System;
 
-namespace globalX.Common
+namespace NameSorter.Common
 {
 	public class Person
 	{

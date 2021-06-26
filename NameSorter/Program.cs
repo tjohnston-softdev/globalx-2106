@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using globalX.Common;
-using globalX.Tasks;
+using NameSorter.Common;
+using NameSorter.Tasks;
 
-namespace globalX
+namespace NameSorter
 {
     class Program
     {
