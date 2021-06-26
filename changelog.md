@@ -1,3 +1,3 @@
 # Changelog
 
-Snapshot 2021-06-26 09:45
+Restructured repository to allow separate projects for the script itself and the unit tests.
