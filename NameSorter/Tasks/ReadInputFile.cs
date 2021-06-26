@@ -80,6 +80,7 @@ namespace NameSorter.Tasks
 		private static bool CheckBytes(long givenBytes)
 		{
 			bool checkRes = false;
+			string sizeErrMsg = "";
 			
 			if (givenBytes > 0 && givenBytes <= maxSize)
 			{
@@ -87,11 +88,13 @@ namespace NameSorter.Tasks
 			}
 			else if (givenBytes > maxSize)
 			{
-				throw new Exception("Input text file cannot be larger than 1MB.");
+				sizeErrMsg = ErrorMessages.WriteInputSizeMessage("larger than 1MB");
+				throw new Exception(sizeErrMsg);
 			}
 			else
 			{
-				throw new Exception("Input text file cannot be empty.");
+				sizeErrMsg = ErrorMessages.WriteInputSizeMessage("empty");
+				throw new Exception(sizeErrMsg);
 			}
 			
 			return checkRes;
