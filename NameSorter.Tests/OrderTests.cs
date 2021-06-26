@@ -13,10 +13,10 @@ namespace NameSorter.Tests
 			Person entryObjectA = Person.TwoNames(1, entryNamesA);
 			
 			string[] entryNamesB = {"Jule", "Vang"};
-			Person entryObjectB = Person.TwoNames(2, entryNamesA);
+			Person entryObjectB = Person.TwoNames(2, entryNamesB);
 			
 			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
-			Assert.AreEqual(flagRes, -1);
+			Assert.AreEqual(-1, flagRes);
 		}
 		
 		[Test]
@@ -29,7 +29,7 @@ namespace NameSorter.Tests
 			Person entryObjectB = Person.OneName(2, entryNamesB);
 			
 			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
-			Assert.AreEqual(flagRes, 1);
+			Assert.AreEqual(1, flagRes);
 		}
 		
 		[Test]
@@ -38,11 +38,11 @@ namespace NameSorter.Tests
 			string[] entryNamesA = {"Jordan", "Alan", "Burns"};
 			Person entryObjectA = Person.MoreNames(1, entryNamesA);
 			
-			string[] entryNamesB = {"Martin", "Septim"};
+			string[] entryNamesB = {"Dwayne", "Smith"};
 			Person entryObjectB = Person.TwoNames(2, entryNamesB);
 			
 			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
-			Assert.AreEqual(flagRes, -1);
+			Assert.AreEqual(-1, flagRes);
 		}
 		
 		
@@ -53,16 +53,34 @@ namespace NameSorter.Tests
 			Person entryObjectA = Person.TwoNames(1, entryNamesA);
 			
 			string[] entryNamesB = {"Ellen", "Thomas"};
-			Person entryObjectB = Person.TwoNames(2, entryNamesA);
+			Person entryObjectB = Person.TwoNames(2, entryNamesB);
 			
 			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
-			Assert.AreEqual(flagRes, -1);
+			Assert.AreEqual(1, flagRes);
 		}
 		
 		[Test]
 		public void DuplicateNames()
 		{
-			Assert.Pass();
+			string[] dupeNames = {"Same", "Person"};
+			Person entryObjectA = Person.TwoNames(1, dupeNames);
+			Person entryObjectB = Person.TwoNames(2, dupeNames);
+			
+			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
+			Assert.AreEqual(0, flagRes);
+		}
+		
+		[Test]
+		public void CaseSensitivity()
+		{
+			string[] upperNames = {"EDWARD", "LAUREL", "HALL"};
+			string[] lowerNames = {"edward", "laurel", "hall"};
+			
+			Person entryObjectA = Person.TwoNames(1, upperNames);
+			Person entryObjectB = Person.TwoNames(2, lowerNames);
+			
+			int flagRes = NameOrder.CompareEntries(entryObjectA, entryObjectB);
+			Assert.AreEqual(0, flagRes);
 		}
     }
 }
