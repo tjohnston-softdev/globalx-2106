@@ -11,8 +11,8 @@ namespace NameSorter
         private static void Main(string[] scriptArgs)
         {
 			string inputFilePath = "";
-			string outputFilePath = "";
 			int sortOrderFlag = 0;
+			string outputFilePath = "";
 			bool fileSizeValid = false;
 			
 			List<Person> peopleEntries = new List<Person>();
@@ -23,8 +23,12 @@ namespace NameSorter
 			{
 				// Read cmd arguments.
 				inputFilePath = InputArgs.ReadInputPath(scriptArgs);
-				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
 				sortOrderFlag = InputArgs.ReadOrderFlag(scriptArgs);
+				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
+				
+				Console.WriteLine(inputFilePath);
+				Console.WriteLine(sortOrderFlag);
+				Console.WriteLine(outputFilePath);
 				
 				// Validate input file size.
 				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
