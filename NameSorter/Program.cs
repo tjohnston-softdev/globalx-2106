@@ -12,6 +12,7 @@ namespace NameSorter
         {
 			string inputFilePath = "";
 			string outputFilePath = "";
+			int sortOrderFlag = 0;
 			bool fileSizeValid = false;
 			
 			List<Person> peopleEntries = new List<Person>();
@@ -23,6 +24,7 @@ namespace NameSorter
 				// Read cmd arguments.
 				inputFilePath = InputArgs.ReadInputPath(scriptArgs);
 				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
+				sortOrderFlag = InputArgs.ReadOrderFlag(scriptArgs);
 				
 				// Validate input file size.
 				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
@@ -31,7 +33,7 @@ namespace NameSorter
 				{
 					// Parse input and sort names.
 					peopleEntries = CallInputRead(inputFilePath);
-					SortNames.PerformSort(peopleEntries);
+					SortNames.PerformSort(peopleEntries, sortOrderFlag);
 					
 					// Write output file.
 					outputLines = WriteOutputFile.PrepareLines(peopleEntries);

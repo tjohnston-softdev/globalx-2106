@@ -35,5 +35,19 @@ namespace NameSorter.Tasks
 			
 			return pathRes;
 		}
+		
+		public static int ReadOrderFlag(string[] argArray)
+		{
+			string argVal = "";
+			int flagRes = 1;
+			
+			if (argArray.length > 2)
+			{
+				argVal = argArray[2];
+				flagRes = Int32.Parse(argVal);
+			}
+			
+			return flagRes;
+		}
 	}
 }
