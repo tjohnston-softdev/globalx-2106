@@ -26,10 +26,6 @@ namespace NameSorter
 				sortOrderFlag = InputArgs.ReadOrderFlag(scriptArgs);
 				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
 				
-				Console.WriteLine(inputFilePath);
-				Console.WriteLine(sortOrderFlag);
-				Console.WriteLine(outputFilePath);
-				
 				// Validate input file size.
 				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
 				
