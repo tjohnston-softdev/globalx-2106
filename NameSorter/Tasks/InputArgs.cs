@@ -41,12 +41,14 @@ namespace NameSorter.Tasks
 			string argVal = "";
 			int flagRes = 1;
 			
-			if (argArray.length > 2)
+			if (argArray.Length > 2)
 			{
 				argVal = argArray[2];
 				flagRes = Int32.Parse(argVal);
 			}
 			
+			
+			Console.WriteLine(flagRes);
 			return flagRes;
 		}
 	}
