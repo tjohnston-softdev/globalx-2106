@@ -8,9 +8,14 @@ namespace NameSorter.Tasks
 	public class SortNames
 	{
 		
-		public static void PerformSort(List<Person> entryList, int sortOrdFlag)
+		public static void PerformSort(List<Person> entryList, int orderFlag)
 		{
 			entryList.Sort(NameOrder.CompareEntries);
+			
+			if (orderFlag <= 0)
+			{
+				entryList.Reverse();
+			}
 		}
 	}
 }
