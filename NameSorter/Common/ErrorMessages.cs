@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Security;
 
 namespace NameSorter.Common
 {
@@ -27,15 +25,14 @@ namespace NameSorter.Common
 		// Input file size.
 		public static string WriteInputSizeMessage(string vContext)
 		{
-			string writeRes = "Input text file cannot be " + vContext;
-			return writeRes;
-		}
+			return "Input text file cannot be " + vContext;
+        }
 		
 		
 		// Parses IO exception into readable description.
 		private static string PrepareErrorDescription(string eType)
-		{
-			string prepDesc = "";
+        {
+            string prepDesc;
 			
 			if (eType == "ArgumentException")
 			{

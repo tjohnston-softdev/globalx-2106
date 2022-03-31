@@ -1,5 +1,3 @@
-using System;
-
 namespace NameSorter.Common
 {
 	// Determines sort order between entries.
@@ -8,16 +6,16 @@ namespace NameSorter.Common
 		public static int CompareEntries(Person x, Person y)
 		{
 			// Names are case-insensitive.
-			string xLast = x.lastName.ToLower();
-			string yLast = y.lastName.ToLower();
-			string xGiven = x.givenNames.ToLower();
-			string yGiven = y.givenNames.ToLower();
+			string xLast = x.LastName.ToLower();
+			string yLast = y.LastName.ToLower();
+			string xGiven = x.GivenNames.ToLower();
+			string yGiven = y.GivenNames.ToLower();
 			
 			// Perform comparisons.
 			int lastComp = xLast.CompareTo(yLast);
 			int givenComp = xGiven.CompareTo(yGiven);
-			
-			int resultFlag = 0;
+
+            int resultFlag;
 			
 			if (lastComp != 0)
 			{

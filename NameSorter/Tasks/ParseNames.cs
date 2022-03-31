@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using NameSorter.Common;
@@ -9,29 +8,22 @@ namespace NameSorter.Tasks
 	public class ParseNames
 	{
 		// RegEx flags whitespace.
-		private static string excessWhitespace = @"(\s+)";
+		private static readonly string _excessWhitespace = @"(\s+)";
 		
 		public static List<Person> IterateLines(string[] linesArr)
 		{
-			int lineIndex = 0;
-			string currentLine = "";
-			string[] currentParts = null;
-			Person currentPerson = null;
-			
-			int idNumber = 1;
+            int idNumber = 1;
 			List<Person> loopRes = new List<Person>();
 			
 			// Every input line.
-			for (lineIndex = 0; lineIndex < linesArr.Length; lineIndex = lineIndex + 1)
+			for (int lineIndex = 0; lineIndex < linesArr.Length; lineIndex++)
 			{
-				currentLine = "";
-				currentParts = new string[0];
-				currentPerson = null;
-				
-				// Read current line and sanitize whitespace.
-				currentLine = linesArr[lineIndex];
+                string[] currentParts = new string[0];
+
+                // Read current line and sanitize whitespace.
+				string currentLine = linesArr[lineIndex];
 				currentLine = currentLine.Trim();
-				currentLine = Regex.Replace(currentLine, excessWhitespace, " ");
+				currentLine = Regex.Replace(currentLine, _excessWhitespace, " ");
 				
 				if (currentLine.Length > 0)
 				{
@@ -42,24 +34,24 @@ namespace NameSorter.Tasks
 				if (currentParts.Length == 1)
 				{
 					// First name only.
-					currentPerson = Person.OneName(idNumber, currentParts);
+					Person currentPerson = Person.OneName(idNumber, currentParts);
 					loopRes.Add(currentPerson);
-					idNumber = idNumber + 1;
-				}
+                    idNumber += 1;
+                }
 				else if (currentParts.Length == 2)
 				{
 					// First and last name.
-					currentPerson = Person.TwoNames(idNumber, currentParts);
+					Person currentPerson = Person.TwoNames(idNumber, currentParts);
 					loopRes.Add(currentPerson);
-					idNumber = idNumber + 1;
-				}
+                    idNumber += 1;
+                }
 				else if (currentParts.Length == 3 || currentParts.Length == 4)
 				{
 					// First, middle, and last names.
-					currentPerson = Person.MoreNames(idNumber, currentParts);
+					Person currentPerson = Person.MoreNames(idNumber, currentParts);
 					loopRes.Add(currentPerson);
-					idNumber = idNumber + 1;
-				}
+                    idNumber += 1;
+                }
 			}
 			
 			return loopRes;

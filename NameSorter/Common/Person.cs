@@ -6,16 +6,16 @@ namespace NameSorter.Common
 	public class Person
 	{
 		// Private properties.
-		private int pEntryID = -1;
-		private string pLastName = "";
-		private string pGivenNames = "";
+		private int _entryId;
+		private string _lastName;
+        private string _givenNames;
 		
 		// Base constructor.
 		private Person(int idVal, string lastVal, string givenVal)
 		{
-			pEntryID = idVal;
-			pLastName = lastVal;
-			pGivenNames = givenVal;
+            _entryId = idVal;
+            _lastName = lastVal;
+            _givenNames = givenVal;
 		}
 		
 		// First name only.
@@ -38,38 +38,24 @@ namespace NameSorter.Common
 		// First, Middle, Last.
 		public static Person MoreNames(int idArg, string[] nameArr)
 		{
-			int lastIndex = -1;
-			string lastStr = "";
-			string givenStr = "";
-			
-			// Read last name.
-			lastIndex = nameArr.Length - 1;
-			lastStr = nameArr[lastIndex];
+            // Read last name.
+			int lastIndex = nameArr.Length - 1;
+			string lastStr = nameArr[lastIndex];
 			
 			// Join given names together.
-			givenStr = String.Join(" ", nameArr, 0, lastIndex);
+			string givenStr = String.Join(" ", nameArr, 0, lastIndex);
 			
 			
-			Person objectRes = new Person(idArg, lastStr, givenStr);
-			return objectRes;
-		}
+			return new Person(idArg, lastStr, givenStr);
+        }
 		
 		
 		// Public properties (read-only)
 		
-		public int entryID
-		{
-			get {return pEntryID;}
-		}
-		
-		public string lastName
-		{
-			get {return pLastName;}
-		}
-		
-		public string givenNames
-		{
-			get {return pGivenNames;}
-		}
-	}
+		public int EntryId => _entryId;
+
+        public string LastName => _lastName;
+
+        public string GivenNames => _givenNames;
+    }
 }

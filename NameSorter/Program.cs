@@ -10,29 +10,23 @@ namespace NameSorter
     {
         private static void Main(string[] scriptArgs)
         {
-			string inputFilePath = "";
-			int sortOrderFlag = 0;
-			string outputFilePath = "";
-			bool fileSizeValid = false;
-			
-			List<Person> peopleEntries = new List<Person>();
-			string[] outputLines = null;
+            string[] outputLines = null;
 			bool resultsSaved = false;
 			
 			try
 			{
 				// Read cmd arguments.
-				inputFilePath = InputArgs.ReadInputPath(scriptArgs);
-				sortOrderFlag = InputArgs.ReadOrderFlag(scriptArgs);
-				outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
+				string inputFilePath = InputArgs.ReadInputPath(scriptArgs);
+				int sortOrderFlag = InputArgs.ReadOrderFlag(scriptArgs);
+				string outputFilePath = InputArgs.ReadOutputPath(scriptArgs);
 				
 				// Validate input file size.
-				fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
+				bool fileSizeValid = ReadInputFile.ValidateSize(inputFilePath);
 				
-				if (fileSizeValid == true)
+				if (fileSizeValid)
 				{
 					// Parse input and sort names.
-					peopleEntries = CallInputRead(inputFilePath);
+                    List<Person> peopleEntries = CallInputRead(inputFilePath);
 					SortNames.PerformSort(peopleEntries, sortOrderFlag);
 					
 					// Write output file.
@@ -40,7 +34,7 @@ namespace NameSorter
 					resultsSaved = WriteOutputFile.SaveResults(outputFilePath, outputLines);
 				}
 				
-				if (resultsSaved == true)
+				if (resultsSaved)
 				{
 					// Display sorted names to console. First 100 only.
 					DisplaySortedLines.Display(100, outputLines);

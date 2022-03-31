@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Security;
 using System.Text;
 using NameSorter.Common;
 
@@ -16,12 +15,11 @@ namespace NameSorter.Tasks
 		// Validate file size.
 		public static bool ValidateSize(string inpFilePath)
 		{
-			long retrievedSize = -1;
-			bool validRes = false;
+            bool validRes;
 			
 			try
 			{
-				retrievedSize = GetBytes(inpFilePath);
+				long retrievedSize = GetBytes(inpFilePath);
 				validRes = CheckBytes(retrievedSize);
 			}
 			catch(Exception validErr)
@@ -37,16 +35,15 @@ namespace NameSorter.Tasks
 		// Read file as array of lines.
 		public static string[] GetLines(string inpFilePath)
 		{
-			string[] linesRes = null;
-			string fileErrMsg = "";
-			
-			try
+			string[] linesRes;
+
+            try
 			{
 				linesRes = File.ReadAllLines(inpFilePath, Encoding.UTF8);
 			}
 			catch(Exception linesErr)
 			{
-				fileErrMsg = ErrorMessages.WriteFileMessage("read", "input", linesErr);
+				string fileErrMsg = ErrorMessages.WriteFileMessage("read", "input", linesErr);
 				throw new Exception(fileErrMsg);
 			}
 			
@@ -56,20 +53,18 @@ namespace NameSorter.Tasks
 		// Read size of input file in bytes.
 		private static long GetBytes(string inpPath)
 		{
-			FileInfo systemEntry = null;
-			long getRes = -1;
-			string fileErrMsg = "";
-			
-			try
+            long getRes;
+
+            try
 			{
 				// Attempt open.
-				systemEntry = new FileInfo(inpPath);
+				FileInfo systemEntry = new FileInfo(inpPath);
 				getRes = systemEntry.Length;
 			}
 			catch(Exception infoErr)
 			{
 				// Error opening input file.
-				fileErrMsg = ErrorMessages.WriteFileMessage("check", "input", infoErr);
+				string fileErrMsg = ErrorMessages.WriteFileMessage("check", "input", infoErr);
 				throw new Exception(fileErrMsg);
 			}
 			
@@ -78,22 +73,24 @@ namespace NameSorter.Tasks
 		
 		// Validate byte count.
 		private static bool CheckBytes(long givenBytes)
-		{
-			bool checkRes = false;
-			string sizeErrMsg = "";
+        {
+            bool checkRes = false;
+            string sizeErrMsg;
 			
 			if (givenBytes > 0 && givenBytes <= maxSize)
 			{
 				checkRes = true;
 			}
 			else if (givenBytes > maxSize)
-			{
-				sizeErrMsg = ErrorMessages.WriteInputSizeMessage("larger than 1MB");
+            {
+                checkRes = false;
+                sizeErrMsg = ErrorMessages.WriteInputSizeMessage("larger than 1MB");
 				throw new Exception(sizeErrMsg);
 			}
 			else
-			{
-				sizeErrMsg = ErrorMessages.WriteInputSizeMessage("empty");
+            {
+                checkRes = false;
+                sizeErrMsg = ErrorMessages.WriteInputSizeMessage("empty");
 				throw new Exception(sizeErrMsg);
 			}
 			

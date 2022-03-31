@@ -7,8 +7,8 @@ namespace NameSorter.Tasks
 	{
 		// Input path.
 		public static string ReadInputPath(string[] argArray)
-		{
-			string pathRes = "";
+        {
+            string pathRes;
 			
 			try
 			{
@@ -25,13 +25,12 @@ namespace NameSorter.Tasks
 		
 		// Sort order flag
 		public static int ReadOrderFlag(string[] argArray)
-		{
-			string argVal = "";
-			int flagRes = 1;
+        {
+            int flagRes = 1;
 			
 			if (argArray.Length > 1)
 			{
-				argVal = argArray[1];
+				string argVal = argArray[1];
 				flagRes = Int32.Parse(argVal);
 			}
 			

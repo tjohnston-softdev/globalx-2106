@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using NameSorter.Common;
 
@@ -11,11 +10,7 @@ namespace NameSorter.Tasks
 		public static void PerformSort(List<Person> entryList, int orderFlag)
 		{
 			entryList.Sort(NameOrder.CompareEntries);
-			
-			if (orderFlag <= 0)
-			{
-				entryList.Reverse();
-			}
-		}
+            if (orderFlag <= 0) entryList.Reverse();
+        }
 	}
 }

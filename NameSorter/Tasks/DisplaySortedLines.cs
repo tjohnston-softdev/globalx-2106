@@ -1,7 +1,4 @@
 using System;
-using System.IO;
-using System.Collections.Generic;
-using NameSorter.Common;
 
 namespace NameSorter.Tasks
 {
@@ -25,18 +22,17 @@ namespace NameSorter.Tasks
 		{
 			int lineIndex = 0;
 			int loopCutoff = Math.Min(dispCount, linesArr.Length);
-			string currentLine = "";
-			
-			Console.WriteLine("Name sorting complete");
+
+            Console.WriteLine("Name sorting complete");
 			Console.WriteLine("");
 			
 			while (lineIndex >= 0 && lineIndex < loopCutoff)
 			{
 				// Display current line.
-				currentLine = linesArr[lineIndex];
+				string currentLine = linesArr[lineIndex];
 				Console.WriteLine(currentLine);
-				lineIndex = lineIndex + 1;
-			}
+                lineIndex += 1;
+            }
 			
 			
 			if (lineIndex < linesArr.Length)

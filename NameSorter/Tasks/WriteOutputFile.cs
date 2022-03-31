@@ -11,17 +11,14 @@ namespace NameSorter.Tasks
 		// Writes sorted name lines.
 		public static string[] PrepareLines(List<Person> entryList)
 		{
-			int personIndex = 0;
-			Person currentPerson = null;
-			string currentLine = "";
-			string[] linesRes = new string[entryList.Count];
+            string[] linesRes = new string[entryList.Count];
 			
 			// Every name entry.
-			for (personIndex = 0; personIndex < entryList.Count; personIndex = personIndex + 1)
+			for (int personIndex = 0; personIndex < entryList.Count; personIndex++)
 			{
 				// Given names and last name.
-				currentPerson = entryList[personIndex];
-				currentLine = currentPerson.givenNames + " " + currentPerson.lastName;
+				Person currentPerson = entryList[personIndex];
+				string currentLine = currentPerson.GivenNames + " " + currentPerson.LastName;
 				linesRes[personIndex] = currentLine;
 			}
 			
@@ -30,11 +27,10 @@ namespace NameSorter.Tasks
 		
 		// Save output file.
 		public static bool SaveResults(string outputPath, string[] linesArr)
-		{
-			bool writeRes = false;
-			string fileErrMsg = "";
-			
-			try
+        {
+            bool writeRes;
+
+            try
 			{
 				// Perform write.
 				File.WriteAllLines(outputPath, linesArr);
@@ -43,8 +39,8 @@ namespace NameSorter.Tasks
 			catch(Exception writeErr)
 			{
 				// Error caught.
-				fileErrMsg = ErrorMessages.WriteFileMessage("saving", "output", writeErr);
-				throw new Exception(fileErrMsg);
+				string fileErrMsg = ErrorMessages.WriteFileMessage("saving", "output", writeErr);
+                throw new Exception(fileErrMsg);
 			}
 			
 			return writeRes;
