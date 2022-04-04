@@ -64,4 +64,4 @@ We will execute your submission against a list with a thousand names.
 * Create a build pipeline like Travis or AppVeyor that execute build and test steps.
 
 ## Submission
-When you are done, let us know the URL of the repo.
+When you are done, send the repository URL.
