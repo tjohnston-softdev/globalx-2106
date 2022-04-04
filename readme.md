@@ -5,6 +5,8 @@ This is my submission for the 'GlobalX Coding Assessment' offered to shortlisted
 
 Assessment instructions were sent as a PDF. I converted it to a [markdown file](./instructions.md) for public viewing.
 
+A revised version was released on 4 April 2022.
+
 ## Running
 
 To run the script, navigate to the 'NameSorter' folder and execute:  
