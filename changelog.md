@@ -1,3 +1,4 @@
 # Changelog
 
-Interview modifications complete.
+* Ran code against ReSharper.
+* Simplified submission instruction text.
